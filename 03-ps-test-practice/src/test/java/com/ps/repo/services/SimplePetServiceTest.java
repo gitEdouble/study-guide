@@ -19,6 +19,7 @@ import static org.junit.Assert.*;
  */
 public class SimplePetServiceTest {
     public static final Long PET_ID = 1L;
+    public static final Long USER_ID = 99L;
     public static final User owner = buildUser("test@gmail.com", "a!2#tre", UserType.OWNER);
 
     private StubPetRepo stubPetRepo = new StubPetRepo();

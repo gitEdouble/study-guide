@@ -17,4 +17,9 @@ public class RequestRepoConfig {
     public RequestRepo anotherRepo(){
         return new JdbcRequestRepo();
     }
+    
+    @Bean (initMethod = "init", destroyMethod = "destroy")
+    public RequestRepo dupRepo(){
+        return new JdbcRequestRepo();
+    }
 }

@@ -4,6 +4,8 @@ import com.ps.config.RequestRepoConfig;
 import com.ps.repos.RequestRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -18,12 +20,14 @@ import static org.junit.Assert.assertNotNull;
 @ContextConfiguration(classes = {RequestRepoConfig.class})
 public class AutowiringTest {
 
-    @Qualifier("requestRepo")
-    @Autowired
+    //@Qualifier("requestRepo")
+    @Autowired@Qualifier("dupRepo")   
     RequestRepo reqRepo;
 
     @Test
-    public void testAutowiredReq() {
+    public void testAutowiredReq() {        
+    
+
         assertNotNull(reqRepo);
     }
 }
