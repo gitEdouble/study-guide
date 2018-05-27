@@ -21,6 +21,12 @@ public class MtBeanTest {
         //TODO 7. Try to use wildcards as well.
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/others/*-01.xml");
 //        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/others/sample-config-01.xml");
+        
+        for (String beanName : ctx.getBeanDefinitionNames()){
+        	logger.info("Bean " + beanName + " of type " + ctx.getBean(beanName).getClass().getSimpleName());
+        }
+        
+        
         MultipleTypesBean mtBean = (MultipleTypesBean) ctx.getBean("mtBean");
         assertNotNull(mtBean);
 
