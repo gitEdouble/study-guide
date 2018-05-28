@@ -80,7 +80,8 @@ public class JdbcNamedTemplateUserRepo implements UserRepo {
         Map<String, Object> params = new HashMap<>();
         params.put("id", id);
         // add NamedParameterJdbcTemplate instance call to find an user
-        return null;
+        //jdbcNamedTemplate.query(sql, params, new rowMapper<User>());
+        return jdbcNamedTemplate.queryForObject(sql, params, rowMapper) ;
     }
 
     @Override

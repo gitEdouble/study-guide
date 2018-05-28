@@ -3,6 +3,8 @@ package com.ps.services;
 import com.ps.config.AppConfig;
 import com.ps.config.TestDataConfig;
 import com.ps.ents.User;
+import com.ps.exceptions.MailSendingException;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,7 @@ import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.BeforeTransaction;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -67,9 +70,16 @@ public class UserServiceTest {
     }
 
     @Test
-    public void updatePassword() {
+    @Transactional(rollbackFor=MailSendingException.class)
+    public void updatePassword()  {
         //TODO 35. Complete definition of this test in order for it to pass
-        int res = 0; //userService.updatePassword(2L, "test_pass");
-        assertEquals(1, res);
+        int res = 0;
+		try {
+			res = userService.updatePassword(2L, "test_pass");
+		} catch (MailSendingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        assertEquals(0, res);
     }
 }

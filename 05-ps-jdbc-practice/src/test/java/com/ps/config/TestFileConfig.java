@@ -64,6 +64,8 @@ public class TestFileConfig {
 	    private DatabasePopulator databasePopulator() {
 	        final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
 	        populator.addScript(schemaScript);
+	        populator.addScript(schemaScript2);
+	        populator.addScript(schemaScript3);
 	        populator.addScript(dataScript);
 	        return populator;
 	    }

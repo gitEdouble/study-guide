@@ -1,24 +1,21 @@
 package com.ps.repo;
 
-import com.ps.config.AppConfig;
-import com.ps.config.TestDataConfig;
-import com.ps.ents.User;
-import com.ps.repos.UserRepo;
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import com.ps.config.AppConfig;
+import com.ps.config.TestDataConfig;
+import com.ps.ents.User;
+import com.ps.repos.UserRepo;
 
 /**
  * Created by iuliana.cosmina on 6/4/16.
@@ -44,10 +41,11 @@ public class TestNamedJdbcTemplateUserRepo {
         assertEquals("John", user.getUsername());
     }
 
-    @Test
+    @Test(expected=EmptyResultDataAccessException.class)
     public void testNoFindById() {
         User user = userRepo.findById(99L);
-        assertEquals("John", user.getUsername());
+        //assertEquals("John", user.getUsername());
+        assertNull(user);
     }
     
 }
