@@ -1,22 +1,18 @@
 package com.ps.integration;
 
-import com.ps.PetConfigClass;
-import com.ps.base.UserType;
-import com.ps.config.TestAppConfig;
-import com.ps.ents.Pet;
-import com.ps.ents.User;
-import com.ps.services.PetService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.Set;
-
 import static com.ps.util.TestObjectsBuilder.buildUser;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.Set;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ps.base.UserType;
+import com.ps.ents.Pet;
+import com.ps.ents.User;
+import com.ps.services.PetService;
 
 /**
  * Created by iuliana.cosmina on 4/17/16.

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
  * Created by iuliana.cosmina on 6/2/16.
  */
 //TODO 21. Declare this class as an aspect
+@Aspect
 public class UserRepoMonitor {
 
     private static final Logger logger = Logger.getLogger(UserRepoMonitor.class);

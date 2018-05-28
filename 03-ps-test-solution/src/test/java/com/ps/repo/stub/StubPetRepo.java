@@ -7,6 +7,7 @@ import com.ps.ents.User;
 import com.ps.repos.PetRepo;
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ import static com.ps.util.TestObjectsBuilder.buildUser;
 /**
  * Created by iuliana.cosmina on 3/4/16.
  */
-@Component
+@Repository
 public class StubPetRepo extends StubAbstractRepo<Pet> implements PetRepo {
 
     protected Map<User, Set<Pet>> records2 = new HashMap<>();

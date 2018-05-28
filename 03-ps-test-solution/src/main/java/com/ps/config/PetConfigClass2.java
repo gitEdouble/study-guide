@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
  */
 public class PetConfigClass2 {
 
-//    @Bean
-//    public PetService simplePetService(){
-//        return new SimplePetService();
-//    }
+    @Bean
+    public PetService simplePetService(){
+        return new SimplePetService();
+    }
 }
